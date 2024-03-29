@@ -24,6 +24,10 @@ img,
 button {
   display: block;
 }
+img {
+  max-width: 100%;
+  height: auto;
+}
 button {
   cursor: pointer;
 }
@@ -100,7 +104,109 @@ button {
   line-height: 0;
   border: none;
 }
+.mob-menu {
+  position: fixed;
+  top: 0;
+  background-color: #fff;
+  width: 100vw;
+  height: 100vh;
+  z-index: 12;
+  padding: 24px 24px 40px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
 
+.mob-button-close {
+  margin-left: auto;
+  display: flex;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  margin-bottom: 24px;
+  align-items: center;
+  justify-content: center;
+  background-color: #e7e9fc;
+  border: 1px solid grey;
+  padding: 0;
+  cursor: pointer;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mob-close-icon {
+  fill: #2e2f42;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mob-button-close:hover,
+.mob-button-close:focus {
+  background-color: #404bbf;
+  border: none;
+}
+.mob-button-close:hover > .mob-close-icon,
+.mob-button-close:focus > .mob-close-icon {
+  fill: #ffffff;
+}
+.mob-nav-list {
+}
+.mob-nav-item:not(:last-child) {
+  margin-bottom: 24px;
+}
+.mob-nav-link {
+  font-weight: 700;
+  font-size: 36px;
+  line-height: 1.11;
+  letter-spacing: 0.02em;
+  text-transform: capitalize;
+  color: #2e2f42;
+}
+.mob-nav-link:hover,
+.mob-nav-link:focus {
+  color: #404bbf;
+}
+.mob-contacts {
+  margin-bottom: 48px;
+}
+.mob-contacts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.mob-contacts-link {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  color: #434455;
+}
+.mob-contacts-link:hover,
+.mob-contacts-link:focus {
+  color: #4d5ae5;
+}
+.mob-media-links-list {
+  display: flex;
+  gap: 40px;
+}
+.mob-media-item {
+}
+.mob-media-link {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-color: #4d5ae5;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mob-media-link:hover,
+.mob-media-link:focus {
+  background-color: #31d0aa;
+}
+
+/* Baner */
 .baner {
   background-color: #2e2f42;
   padding: 72px 0;
@@ -109,11 +215,22 @@ button {
       rgba(46, 47, 66, 0.7),
       rgba(46, 47, 66, 0.7)
     ),
-    url(../images/baner-background.jpg);
+    url(../images/baner-background/baner-background-mob.jpg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   max-width: 1440px;
+}
+@media screen and (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+  .baner {
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/baner-background/baner-background-mob-2x.jpg);
+  }
 }
 .main-heading {
   color: #fff;
@@ -148,7 +265,7 @@ button {
 .order-service-button:focus {
   background-color: #404bbf;
 }
-
+/* Advantages */
 .our-advantages {
   padding: 96px 0;
 }
@@ -182,7 +299,7 @@ button {
   line-height: 1.5;
   letter-spacing: 0.02em;
 }
-
+/* Our Team */
 .our-team {
   background-color: #f4f4fd;
   padding: 96px 0;
@@ -247,191 +364,17 @@ button {
 .social-link-icon {
   fill: #f4f4fd;
 }
-@media screen and (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-  .open-menu-btn {
-    display: none;
-  }
-  .logo {
-    margin-right: 120px;
-  }
-  .nav-list {
-    display: flex;
-    gap: 40px;
-  }
-  .nav-list-item-link {
-    color: #2e2f42;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 1.5;
-    letter-spacing: 0.02em;
-    padding: 24px 0;
-    display: block;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .nav-list-item-link:hover,
-  .nav-list-item-link:focus {
-    color: #404bbf;
-  }
-
-  .current {
-    position: relative;
-    color: #404bbf;
-  }
-  .current::after {
-    content: "";
-    width: 100%;
-    position: absolute;
-    left: 0;
-    bottom: -1px;
-    height: 4px;
-    background-color: #404bbf;
-    border-radius: 2px;
-  }
-  .contacts {
-    display: block;
-  }
-  .contacts-list {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-  .contacts-item-link {
-    color: #434455;
-    font-size: 12px;
-    line-height: 1.17;
-    letter-spacing: 0.02em;
-    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  }
-  .contacts-item-link:hover,
-  .contacts-item-link:focus {
-    color: #404bbf;
-  }
-  /* BANER */
-  .baner {
-    padding: 112px 0;
-  }
-  .main-heading {
-    font-size: 56px;
-    line-height: 1.07;
-  }
-  .order-service-button {
-    margin: 52px auto 0 auto;
-  }
-  /* ADVANTAGES */
-  .advantages-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 72px 24px;
-  }
-  .advantages-item {
-    width: calc((100% - 24px) / 2);
-  }
-  .advantage-title {
-    text-align: start;
-  }
-  /* OUR TEAM */
-  .team-tablet-container {
-    padding-left: 108px;
-    padding-right: 108px;
-  }
-  .team-list {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 64px 24px;
-  }
-  .team-list-item {
-    width: calc((100% - 24px) / 2);
-  }
-}
-@media screen and (min-width: 1158px) {
-  .container {
-    max-width: 1158px;
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  .logo {
-    margin-right: 76px;
-  }
-
-  .contacts-list {
-    flex-direction: row;
-    gap: 40px;
-  }
-  .contacts-item-link {
-    font-size: 16px;
-    line-height: 1.5;
-  }
-  /* BANER */
-  .baner {
-    padding: 188px 0;
-  }
-  .main-heading {
-    font-size: 56px;
-    line-height: 1.07;
-    text-align: center;
-    max-width: 496px;
-  }
-  .order-service-button {
-    margin: 48px auto 0 auto;
-  }
-  /* ADVANTAGES */
-  .our-advantages {
-    padding: 120px 0;
-  }
-  .advantages-list {
-    gap: 24px;
-  }
-  .advantages-item {
-    width: calc((100% - 72px) / 4);
-  }
-  .advantage-item-icon-container {
-    display: flex;
-    justify-content: center;
-    border: 1px solid #8e8f99;
-    border-radius: 4px;
-    background: #f4f4fd;
-    margin-bottom: 8px;
-    align-items: center;
-    height: 112px;
-  }
-  .advantage-title {
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.2;
-  }
-  .advantage-description {
-    font-weight: 400;
-  }
-  /* OUR TEAM */
-  .our-team {
-    padding: 120px 0;
-  }
-  .team-tablet-container {
-    padding-left: 15px;
-    padding-right: 15px;
-  }
-  .team-list {
-    gap: 24px;
-  }
-  .team-list-item {
-    width: calc((100% - 72px) / 4);
-  }
-}
+/* Portfolio */
 .portfolio {
-  padding: 120px 0;
+  padding: 96px 0;
 }
 .portfolio-list {
   display: flex;
-  flex-wrap: wrap;
-  column-gap: 24px;
-  row-gap: 48px;
+  flex-direction: column;
+  gap: 48px;
 }
 .portfolio-list-item {
-  width: calc((100% - 48px) / 3);
+  width: 100%;
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-list-item:hover {
@@ -485,15 +428,18 @@ button {
 
 .footer {
   background-color: #2e2f42;
-  padding: 100px 0;
+  padding: 96px 0;
 }
 .footer-container {
   display: flex;
-  flex-direction: row;
-  align-items: baseline;
+  flex-direction: column;
+  align-items: center;
+  gap: 72px;
 }
 .footer-company-info {
-  margin-right: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .footer-logo {
   color: #4d5ae5;
@@ -518,7 +464,9 @@ button {
   max-width: 264px;
 }
 .footer-links-container {
-  margin-right: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .footer-social-media-title {
   font-size: 16px;
@@ -546,15 +494,11 @@ button {
 .social-link-icon {
   fill: #f4f4fd;
 }
-.footer-media-links-link:hover {
-  background-color: #31d0aa;
-}
+.footer-media-links-link:hover,
 .footer-media-links-link:focus {
   background-color: #31d0aa;
 }
-.footer-form-container {
-  margin-right: 0px;
-}
+
 .footer-form-header {
   font-weight: 500;
   font-size: 16px;
@@ -562,10 +506,12 @@ button {
   letter-spacing: 0.02em;
   color: #fff;
   margin-bottom: 16px;
+  text-align: center;
 }
 .footer-form {
   display: flex;
-  gap: 24px;
+  flex-direction: column;
+  gap: 16px;
 }
 .footer-form-label {
 }
@@ -574,7 +520,7 @@ button {
   border: 1px solid #fff;
   border-radius: 4px;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.15);
-  width: 264px;
+  width: 288px;
   height: 40px;
   background-color: transparent;
   font-family: inherit;
@@ -588,7 +534,7 @@ button {
   color: #fff;
 }
 .footer-form-button {
-  min-width: 165px;
+  width: 165px;
   height: 40px;
   display: flex;
   justify-content: center;
@@ -605,12 +551,14 @@ button {
   text-align: center;
   color: #fff;
   cursor: pointer;
+  align-self: center;
 }
 
 .footer-form-icon {
   fill: #fff;
   margin-left: 16px;
 }
+
 /* Modal Window */
 .modal-backdrop {
   position: fixed;
@@ -619,17 +567,18 @@ button {
   z-index: 99;
   width: 100%;
   height: 100%;
+  background: rgba(46, 47, 66, 0.4);
+  opacity: 0;
   visibility: hidden;
   pointer-events: none;
   transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
     visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal-backdrop.is-open {
+.is-open {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  background: rgba(46, 47, 66, 0.4);
 }
 
 .modal-content {
@@ -637,13 +586,13 @@ button {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
-  width: 408px;
-  min-height: 584px;
+  width: 288px;
+  min-height: 623px;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12),
     0 2px 1px 0 rgba(0, 0, 0, 0.2);
   background-color: #fcfcfc;
   border-radius: 4px;
-  padding: 72px 24px 24px 24px;
+  padding: 72px 16px 24px 16px;
   transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button-close {
@@ -771,7 +720,7 @@ button {
   align-items: center;
   justify-content: center;
   fill: transparent;
-  margin-right: 8px;
+  margin-right: 7.5px;
 }
 input[type="checkbox"]:checked + .terms .privacy-box {
   background-color: #404bbf;
@@ -779,6 +728,9 @@ input[type="checkbox"]:checked + .terms .privacy-box {
   fill: #f4f4fd;
 }
 .privacy-link {
+  line-height: 1.33;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
   color: #4d5ae5;
 }
 .modal-form-button {
@@ -803,4 +755,299 @@ input[type="checkbox"]:checked + .terms .privacy-box {
 .modal-form-button:hover,
 .modal-form-button:focus {
   background-color: #404bbf;
+}
+
+/* Adaptation for TABLET */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+  .open-menu-btn {
+    display: none;
+  }
+  .mob-menu {
+    display: none;
+  }
+  .logo {
+    margin-right: 120px;
+  }
+  .nav-list {
+    display: flex;
+    gap: 40px;
+  }
+  .nav-list-item-link {
+    color: #2e2f42;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    padding: 24px 0;
+    display: block;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .nav-list-item-link:hover,
+  .nav-list-item-link:focus {
+    color: #404bbf;
+  }
+
+  .current {
+    position: relative;
+    color: #404bbf;
+  }
+  .current::after {
+    content: "";
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+    height: 4px;
+    background-color: #404bbf;
+    border-radius: 2px;
+  }
+  .contacts {
+    display: block;
+  }
+  .contacts-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .contacts-item-link {
+    color: #434455;
+    font-size: 12px;
+    line-height: 1.17;
+    letter-spacing: 0.02em;
+    transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .contacts-item-link:hover,
+  .contacts-item-link:focus {
+    color: #404bbf;
+  }
+  /* BANER */
+  .baner {
+    padding: 112px 0;
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/baner-background/baner-background-tab.jpg);
+  }
+  @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .baner {
+      background-image: linear-gradient(
+          rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/baner-background/baner-background-tab-2x.jpg);
+    }
+  }
+  .main-heading {
+    font-size: 56px;
+    line-height: 1.07;
+  }
+  .order-service-button {
+    margin: 52px auto 0 auto;
+  }
+  /* ADVANTAGES */
+  .advantages-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 72px 24px;
+  }
+  .advantages-item {
+    width: calc((100% - 24px) / 2);
+  }
+  .advantage-title {
+    text-align: start;
+  }
+  /* OUR TEAM */
+  .team-tablet-container {
+    padding-left: 108px;
+    padding-right: 108px;
+  }
+  .team-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 64px 24px;
+  }
+  .team-list-item {
+    width: calc((100% - 24px) / 2);
+  }
+  /* Portfolio */
+  .portfolio-list {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 48px;
+  }
+  .portfolio-list {
+    column-gap: 24px;
+    row-gap: 72px;
+  }
+  .portfolio-list-item {
+    width: calc((100% - 24px) / 2);
+  }
+  /* Footer */
+  .footer-container {
+    padding-left: 108px;
+    padding-right: 108px;
+    flex-direction: row;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    column-gap: 24px;
+    row-gap: 72px;
+  }
+  .footer-company-info {
+    align-items: flex-start;
+  }
+
+  .footer-form-header {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: 0.02em;
+    color: #fff;
+    margin-bottom: 16px;
+    text-align: start;
+  }
+  .footer-form {
+    flex-direction: row;
+    gap: 24px;
+  }
+  .footer-form-label {
+  }
+  .footer-form-input {
+    width: 264px;
+  }
+  /* Modal form */
+  .modal-content {
+    width: 408px;
+    min-height: 584px;
+    padding: 72px 24px 24px 24px;
+  }
+}
+/* Adaptation for DESKTOP */
+@media screen and (min-width: 1158px) {
+  .container {
+    max-width: 1158px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .logo {
+    margin-right: 76px;
+  }
+
+  .contacts-list {
+    flex-direction: row;
+    gap: 40px;
+  }
+  .contacts-item-link {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  /* BANER */
+  .baner {
+    padding: 188px 0;
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(../images/baner-background/baner-background.jpg);
+  }
+  @media screen and (min-device-pixel-ratio: 2),
+    (min-resolution: 192dpi),
+    (min-resolution: 2dppx) {
+    .baner {
+      background-image: linear-gradient(
+          rgba(46, 47, 66, 0.7),
+          rgba(46, 47, 66, 0.7)
+        ),
+        url(../images/baner-background/baner-background-2x.jpg);
+    }
+  }
+  .main-heading {
+    font-size: 56px;
+    line-height: 1.07;
+    text-align: center;
+    max-width: 496px;
+  }
+  .order-service-button {
+    margin: 48px auto 0 auto;
+  }
+  /* ADVANTAGES */
+  .our-advantages {
+    padding: 120px 0;
+  }
+  .advantages-list {
+    gap: 24px;
+  }
+  .advantages-item {
+    width: calc((100% - 72px) / 4);
+  }
+  .advantage-item-icon-container {
+    display: flex;
+    justify-content: center;
+    border: 1px solid #8e8f99;
+    border-radius: 4px;
+    background: #f4f4fd;
+    margin-bottom: 8px;
+    align-items: center;
+    height: 112px;
+  }
+  .advantage-title {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .advantage-description {
+    font-weight: 400;
+  }
+  /* OUR TEAM */
+  .our-team {
+    padding: 120px 0;
+  }
+  .team-tablet-container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .team-list {
+    gap: 24px;
+  }
+  .team-list-item {
+    width: calc((100% - 72px) / 4);
+  }
+  /* Portfolio */
+  .portfolio {
+    padding: 120px 0;
+  }
+  .portfolio-list {
+    row-gap: 48px;
+  }
+  .portfolio-list-item {
+    width: calc((100% - 48px) / 3);
+  }
+  /* Footer */
+  .footer-container {
+    padding-left: 15px;
+    padding-right: 15px;
+    flex-wrap: nowrap;
+  }
+  .footer-company-info {
+    margin-right: 120px;
+  }
+
+  .footer-form-container {
+    margin-left: auto;
+  }
+  .footer-form {
+    flex-direction: row;
+    gap: 24px;
+  }
+
+  .footer-form-input {
+    width: 264px;
+  }
+  /* Modal Form */
 }
