@@ -175,6 +175,9 @@ button {
   gap: 24px;
 }
 .mob-contacts-link {
+  font-family: "Roboto", sans-serif;
+  text-decoration: none;
+  font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
@@ -707,6 +710,9 @@ button {
   font-size: 12px;
   line-height: 1.17;
   letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  font-family: inherit;
 }
 .privacy-box {
   width: 16px;
@@ -719,8 +725,10 @@ button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  align-self: center;
   fill: transparent;
-  margin-right: 7.5px;
+  margin-right: 8px;
+  flex-shrink: 0;
 }
 input[type="checkbox"]:checked + .terms .privacy-box {
   background-color: #404bbf;
@@ -902,7 +910,9 @@ input[type="checkbox"]:checked + .terms .privacy-box {
   .footer-company-info {
     align-items: flex-start;
   }
-
+  .footer-social-media-title {
+    align-self: start;
+  }
   .footer-form-header {
     font-weight: 500;
     font-size: 16px;
